@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kerala</title>
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color:rgb(152, 230, 230);">
+	
+	<div class="menubar">
+        <nav class="navbar navbar-expand-lg navbar-light" style="height:75px">
+            <a class="navbar-brand" href="#"><img src="./images/logo3.png.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="district.html">Districts</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signin.html">Sign In</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+	</div>
+	<!-- heading -->
+<div class="dist">
+	<h1>
+		SIGNUP
+	</h1>
+  </div>
+  <!-- /heading -->
+    <!-- <h1 class="text-white text-center font-weight-bold bg-success" style="font-size: 55px;">Create an Account</h1> -->
+    <div class="container"><br>		
+		<div class="col-lg-6 m-auto d-block">			
+             <form action="signin.html" onsubmit="return validation()" class="bg-light">
+                <div class="form-group p-2">
+					<label for="user" class="font-weight-bold"> Username: </label>
+					<input type="text" name="user" class="form-control" id="user" autocomplete="off">
+					<span id="username" class="text-danger font-weight-bold"> </span>
+                </div>
+                <div class="form-group p-2">
+					<label class="font-weight-bold"> Password: </label>
+					<input type="password" name="pass" class="form-control" id="pass" autocomplete="off" onkeyup="passtrength()" placeholder="8 characters including at least 1 uppercase,1 lower case,1 number">
+					<span id="passwords" class="text-danger font-weight-bold"> </span>
+					<span id="pas"></span>
+				</div>
+
+				<div class="form-group p-2">
+					<label class="font-weight-bold"> Confirm Password: </label>
+					<input type="password" name="conpass" class="form-control" id="conpass" autocomplete="off">
+					<span id="confrmpass" class="text-danger font-weight-bold"> </span>
+				</div>
+                <div class="form-group p-2">
+					<label class="font-weight-bold"> Mobile Number: </label>
+					<input type="text" name="mobile" class="form-control" id="mobileNumber" autocomplete="off">
+					<span id="mobileno" class="text-danger font-weight-bold"> </span>
+				</div>
+                <div class="form-group p-2">
+					<label class="font-weight-bold"> Email: </label>
+					<input type="text" name="email" class="form-control" id="emails" autocomplete="off">
+					<span id="emailids" class="text-danger font-weight-bold"> </span>
+				</div>
+				<div class="form-group text-center p-2">
+				<input type="submit" name="submit" value="Create Account" class="btn btn-success" 	autocomplete="off">
+				</div>
+            </form><br><br>
+
+		</div>
+	</div>
+    <script type="text/javascript">
+
+function validation(){
+    var user = document.getElementById('user').value;
+    var emails = document.getElementById('emails').value;
+    var mobileNumber = document.getElementById('mobileNumber').value;
+    var pass = document.getElementById('pass').value;
+	var confirmpass = document.getElementById('conpass').value;
+
+    		if(user == ""){
+				document.getElementById('username').innerHTML =" ** Please fill the username field";
+				return false;
+			}
+			if((user.length <= 2) || (user.length > 20)) {
+				document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
+				return false;	
+			}
+			if(!isNaN(user)){
+				document.getElementById('username').innerHTML =" ** only characters are allowed";
+				return false;
+			}
+
+            if(pass == ""){
+				document.getElementById('passwords').innerHTML =" ** Please fill the password field";
+				return false;
+			}
+			if((pass.length <= 7) || (pass.length > 20)) {
+				document.getElementById('passwords').innerHTML =" ** Passwords lenght must be between  8 and 20";
+				return false;	
+			}
+			 if(pass.search(/[0-9]/)==-1){
+				document.getElementById('passwords').innerHTML =" ** Passwords must contain at least one numeric";
+				return false;
+			}
+			if(pass.search(/[a-z]/)==-1){
+				document.getElementById('passwords').innerHTML =" ** Passwords must contain at least one lowercase";
+				return false;
+			}
+			if(pass.search(/[A-Z]/)==-1){
+				document.getElementById('passwords').innerHTML =" ** Passwords must contain at least one uppercase";
+				return false;
+			}
+			
+
+			// ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})
+
+			// if(pass.test(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)){
+
+
+			   
+            //  if(pass.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,20}$/)){
+                //  if(pass.length<=4){
+                //     // document.getElementById('passwords').innerHTML =" ** Poor"; 
+                //     alert("password is poor")
+                //     document.getElementById('pass').style.border =" solid 1px red"; 
+                //     return false;
+                // }
+                // if(pass.length<=8){
+                //     document.getElementById('passwords').innerHTML =" ** Medium"; 
+                //     document.getElementById('pass').style.border =" solid 1px orange"; 
+                //     return false;
+                // }
+                // if(pass.length<=20){
+                //     document.getElementById('passwords').innerHTML =" ** Strong"; 
+                //     document.getElementById('pass').style.border =" solid 1px green"; 
+                //     return true;
+                // }
+            //     document.getElementById('passwords').innerHTML =" ** Minimum 8 characters, at least one uppercase, and one lower case, must contain at least one number";
+            //     return true; 
+				               
+			// }
+
+
+			if(pass!=confirmpass){
+				document.getElementById('confrmpass').innerHTML =" ** Password does not match the confirm password";
+				return false;
+			}
+
+
+
+			if(confirmpass == ""){
+				document.getElementById('confrmpass').innerHTML =" ** Please fill the confirmpassword field";
+				return false;
+			}
+
+
+
+
+
+    if(mobileNumber == ""){
+				document.getElementById('mobileno').innerHTML =" ** Please fill the mobile NUmber field";
+				return false;
+			}
+			// if(isNaN(mobileNumber)){
+			// 	document.getElementById('mobileno').innerHTML =" ** user must write digits only not characters";
+			// 	return false;
+			// }
+            if((mobileNumber.match(/^\d{10}$/))){
+                // document.getElementById('mobileno').innerHTML =" ** Mobile Number must be 10 digits only";
+				return true;
+
+            }
+			// if(mobileNumber.length!=10){
+			// 	document.getElementById('mobileno').innerHTML =" ** Mobile Number must be 10 digits only";
+			// 	return false;
+			// }
+            if((mobileNumber.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/))){
+               
+				return true;
+            }
+
+    if(emails == ""){
+				document.getElementById('emailids').innerHTML =" ** Please fill the email id field";
+				return false;
+			}
+			if(emails.indexOf('@') <= 0 ){
+				document.getElementById('emailids').innerHTML =" ** @ Invalid Position";
+				return false;
+			}
+
+			if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+				document.getElementById('emailids').innerHTML =" ** . Invalid Position";
+				return false;
+			}
+}
+function passtrength(){
+	var pass1= document.getElementById('pass').value.length;
+	var pass = document.getElementById('pass').value;
+
+		if(pass1<4){
+
+			document.getElementById('pas').innerHTML="password is poor";
+			document.getElementById('pas').style.color="red";
+			document.getElementById('pass').style.border="solid 1px red";
+		}
+		 if(pass1>=4 && pass1<8){
+			document.getElementById('pas').innerHTML="password is medium";
+			document.getElementById('pas').style.color="orange";
+			document.getElementById('pass').style.border="solid 1px orange";
+		}
+		if(pass1>=8 && pass1<=20){
+			if(pass.match(/[0-9]/) && pass.match(/[a-z]/) && pass.match(/[A-Z]/)){
+			document.getElementById('pas').innerHTML="password is strong";
+			document.getElementById('pas').style.color="green";
+			document.getElementById('pass').style.border="solid 1px green";
+			}
+
+		}
+		
+	
+
+
+}
+        
+    </script>
+		
+				
+</body>
+</html>
